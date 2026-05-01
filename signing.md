@@ -21,37 +21,37 @@ The action is never signed directly. Instead, a **phantom agent** is constructed
 
 {% stepper %}
 {% step %}
-### Msgpack-encode the action object
+#### Msgpack-encode the action object
 
 [Msgpack](https://msgpack.org/)-encode the action object (field order matters — the expected order varies by action type)
 {% endstep %}
 
 {% step %}
-### Append the nonce
+#### Append the nonce
 
 Append the [nonce](https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/nonces-and-api-wallets) as uint64 big-endian (8 bytes)
 {% endstep %}
 
 {% step %}
-### Append the vault marker
+#### Append the vault marker
 
 Append a [vault](https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/vaults) marker: `0x01` + 20-byte vault address, or `0x00` if none
 {% endstep %}
 
 {% step %}
-### Append `expiresAfter` if present
+#### Append `expiresAfter` if present
 
 If [`expiresAfter`](https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/exchange-endpoint#expires-after) is set, append `0x00` + the timestamp as uint64 big-endian
 {% endstep %}
 
 {% step %}
-### Hash the concatenated bytes
+#### Hash the concatenated bytes
 
 [Keccak-256](https://en.wikipedia.org/wiki/SHA-3#Instances) hash the concatenated bytes. This is the `connectionId`
 {% endstep %}
 
 {% step %}
-### Sign an EIP-712 message
+#### Sign an EIP-712 message
 
 Sign an [EIP-712](https://eips.ethereum.org/EIPS/eip-712) message with:
 
@@ -61,7 +61,7 @@ Sign an [EIP-712](https://eips.ethereum.org/EIPS/eip-712) message with:
 {% endstep %}
 
 {% step %}
-### Send the signed action
+#### Send the signed action
 
 Send `{ action, signature: { r, s, v }, nonce }` to the [exchange endpoint](https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/exchange-endpoint)
 {% endstep %}
@@ -75,13 +75,13 @@ The action fields are placed directly into the EIP-712 message, with no hashing 
 
 {% stepper %}
 {% step %}
-### Define the typed data structure
+#### Define the typed data structure
 
 Each action type defines its own [typed data](https://eips.ethereum.org/EIPS/eip-712#definition-of-typed-structured-data-%F0%9D%95%8A) structure (for example, `HyperliquidTransaction:ApproveAgent`)
 {% endstep %}
 
 {% step %}
-### Sign an EIP-712 message
+#### Sign an EIP-712 message
 
 Sign an EIP-712 message with:
 
@@ -90,7 +90,7 @@ Sign an EIP-712 message with:
 {% endstep %}
 
 {% step %}
-### Send the signed action
+#### Send the signed action
 
 Send `{ action, signature: { r, s, v }, nonce }` to the exchange endpoint
 {% endstep %}
@@ -410,7 +410,7 @@ For convenience, `signMultiSigL1` and `signMultiSigUserSigned` orchestrate the f
 
 {% stepper %}
 {% step %}
-### Inner signatures
+#### Inner signatures
 
 Each signer signs the `[multiSigUser, outerSigner, action]` tuple via `signL1Action`. The leader (first signer) then signs the wrapper via `signMultiSigAction`:
 
@@ -472,7 +472,7 @@ await fetch("https://api.hyperliquid.xyz/exchange", {
 
 {% stepper %}
 {% step %}
-### Inner signatures
+#### Inner signatures
 
 Each signer signs the action with embedded `payloadMultiSigUser` and `outerSigner` fields via `signUserSignedAction`. The EIP-712 types must be extended with these fields (inserted after `hyperliquidChain`). The leader then signs the wrapper via `signMultiSigAction`:
 

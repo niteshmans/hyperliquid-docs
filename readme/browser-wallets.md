@@ -39,7 +39,7 @@ const client = new ExchangeClient({ transport, wallet });
 
 ### Signature prompts
 
-Every exchange action triggers a wallet popup that the user must approve. [L1 actions](signing.md#l1-action) (trading and position management) show a [phantom agent](signing.md#l1-action) hash instead of human-readable details — this is by design, because the action is never signed directly.
+Every exchange action triggers a wallet popup that the user must approve. [L1 actions](../signing.md#l1-action) (trading and position management) show a [phantom agent](../signing.md#l1-action) hash instead of human-readable details — this is by design, because the action is never signed directly.
 
 To avoid repeated popups and hide unreadable L1 signatures from users, approve an [agent wallet](agent-wallets-and-vaults.md#agent-wallets) once with the browser wallet, then use the agent's private key for all subsequent trades:
 
