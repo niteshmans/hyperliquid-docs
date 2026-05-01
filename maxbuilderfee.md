@@ -23,7 +23,7 @@ Request builder fee approval.
 ## TypeScript
 
 ```typescript
-import * as hl from "@nktkas/hyperliquid";
+import * as hl from "@devmike/hyperliquid-sdk";
 
 const transport = new hl.HttpTransport(); // or `WebSocketTransport`
 const client = new hl.InfoClient({ transport });

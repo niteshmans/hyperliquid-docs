@@ -26,7 +26,7 @@ This error is thrown when an HTTP request fails, such as non-200 status codes, n
 Has `response` (the [`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response) object) when the server responded, `undefined` for network-level failures.
 
 ```ts
-import { HttpRequestError } from "@nktkas/hyperliquid";
+import { HttpRequestError } from "@devmike/hyperliquid-sdk";
 
 try {
   await client.allMids();
@@ -44,7 +44,7 @@ try {
 This error is thrown when a WebSocket request or subscription fails, such as connection failures, server errors, or exceeded subscription limits.
 
 ```ts
-import { WebSocketRequestError } from "@nktkas/hyperliquid";
+import { WebSocketRequestError } from "@devmike/hyperliquid-sdk";
 
 try {
   await client.allMids();
@@ -62,7 +62,7 @@ try {
 Has `response` with the full API response object:
 
 ```ts
-import { ApiRequestError } from "@nktkas/hyperliquid";
+import { ApiRequestError } from "@devmike/hyperliquid-sdk";
 
 try {
   await client.order({ orders: [/* ... */], grouping: "na" });
@@ -79,7 +79,7 @@ try {
 `AbstractWalletError` is thrown when a wallet operation fails, such as signature creation, address retrieval, or chain ID detection. The original error is in `cause`.
 
 ```ts
-import { AbstractWalletError } from "@nktkas/hyperliquid";
+import { AbstractWalletError } from "@devmike/hyperliquid-sdk";
 
 try {
   await client.order({ orders: [/* ... */], grouping: "na" });
@@ -98,7 +98,7 @@ try {
 The `cause` property contains the original [`ValiError`](https://valibot.dev/api/ValiError/) with detailed issue information:
 
 ```ts
-import { ValidationError } from "@nktkas/hyperliquid";
+import { ValidationError } from "@devmike/hyperliquid-sdk";
 
 try {
   await client.order({ orders: [/* ... */], grouping: "na" });
@@ -115,7 +115,7 @@ try {
 Both transports use [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) internally, so timeouts and user-initiated cancellations produce a [`DOMException`](https://developer.mozilla.org/en-US/docs/Web/API/DOMException) in `cause`:
 
 ```ts
-import { TransportError } from "@nktkas/hyperliquid";
+import { TransportError } from "@devmike/hyperliquid-sdk";
 //       ^^^^^^^^^^^^^^
 //       universal transport error superclass for both HTTP and WebSocket transports
 
@@ -144,7 +144,7 @@ import {
   TransportError,
   ValidationError,
   WebSocketRequestError,
-} from "@nktkas/hyperliquid";
+} from "@devmike/hyperliquid-sdk";
 
 try {
   await client.order({ orders: [/* ... */], grouping: "na" });

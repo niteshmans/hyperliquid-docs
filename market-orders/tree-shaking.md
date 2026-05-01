@@ -8,14 +8,14 @@ The following table lists the available entry points:
 
 | Entry point                            | Contains                                       |
 | -------------------------------------- | ---------------------------------------------- |
-| `@nktkas/hyperliquid`                  | Transports, clients, error classes             |
-| `@nktkas/hyperliquid/signing`          | Signing functions, wallet utilities            |
-| `@nktkas/hyperliquid/utils`            | `formatPrice`, `formatSize`, `SymbolConverter` |
-| `@nktkas/hyperliquid/api/info`         | Info methods, individually importable          |
-| `@nktkas/hyperliquid/api/exchange`     | Exchange methods, individually importable      |
-| `@nktkas/hyperliquid/api/subscription` | Subscription methods, individually importable  |
+| `@devmike/hyperliquid-sdk`                  | Transports, clients, error classes             |
+| `@devmike/hyperliquid-sdk/signing`          | Signing functions, wallet utilities            |
+| `@devmike/hyperliquid-sdk/utils`            | `formatPrice`, `formatSize`, `SymbolConverter` |
+| `@devmike/hyperliquid-sdk/api/info`         | Info methods, individually importable          |
+| `@devmike/hyperliquid-sdk/api/exchange`     | Exchange methods, individually importable      |
+| `@devmike/hyperliquid-sdk/api/subscription` | Subscription methods, individually importable  |
 
-Each entry point has independent dependencies. Importing `@nktkas/hyperliquid/utils` doesn't pull in signing or validation code.
+Each entry point has independent dependencies. Importing `@devmike/hyperliquid-sdk/utils` doesn't pull in signing or validation code.
 
 ### Direct method imports
 
@@ -24,8 +24,8 @@ Instead of creating a [client](../clients.md) (which bundles all methods), impor
 Info methods use [`InfoClient`](../clients.md#read-data) config:
 
 ```ts
-import { HttpTransport } from "@nktkas/hyperliquid";
-import { allMids } from "@nktkas/hyperliquid/api/info";
+import { HttpTransport } from "@devmike/hyperliquid-sdk";
+import { allMids } from "@devmike/hyperliquid-sdk/api/info";
 
 const transport = new HttpTransport();
 const result = await allMids({ transport });
@@ -36,8 +36,8 @@ This bundles only the `allMids` method, its validation schema, and the transport
 Exchange methods use [`ExchangeClient`](../clients.md#trading) config:
 
 ```ts
-import { HttpTransport } from "@nktkas/hyperliquid";
-import { order } from "@nktkas/hyperliquid/api/exchange";
+import { HttpTransport } from "@devmike/hyperliquid-sdk";
+import { order } from "@devmike/hyperliquid-sdk/api/exchange";
 import { privateKeyToAccount } from "viem/accounts";
 
 const transport = new HttpTransport();
@@ -62,8 +62,8 @@ await order(
 Subscription methods use [`SubscriptionClient`](../clients.md#real-time-updates) config:
 
 ```ts
-import { WebSocketTransport } from "@nktkas/hyperliquid";
-import { allMids } from "@nktkas/hyperliquid/api/subscription";
+import { WebSocketTransport } from "@devmike/hyperliquid-sdk";
+import { allMids } from "@devmike/hyperliquid-sdk/api/subscription";
 
 const transport = new WebSocketTransport();
 const subscription = await allMids({ transport }, (data) => {

@@ -7,38 +7,38 @@ A community-supported [Hyperliquid API](https://hyperliquid.gitbook.io/hyperliqu
 {% tabs %}
 {% tab title="npm" %}
 ```bash
-npm i @nktkas/hyperliquid
+npm i @devmike/hyperliquid-sdk
 ```
 {% endtab %}
 
 {% tab title="pnpm" %}
 ```bash
-pnpm add @nktkas/hyperliquid
+pnpm add @devmike/hyperliquid-sdk
 ```
 {% endtab %}
 
 {% tab title="yarn" %}
 ```bash
-yarn add @nktkas/hyperliquid
+yarn add @devmike/hyperliquid-sdk
 ```
 {% endtab %}
 
 {% tab title="bun" %}
 ```bash
-bun add @nktkas/hyperliquid
+bun add @devmike/hyperliquid-sdk
 ```
 {% endtab %}
 
 {% tab title="deno" %}
 ```bash
-deno add jsr:@nktkas/hyperliquid
+deno add jsr:@devmike/hyperliquid-sdk
 ```
 {% endtab %}
 
 {% tab title="CDN" %}
 ```html
 <script type="module">
-  import * as hl from "https://esm.sh/jsr/@nktkas/hyperliquid";
+  import * as hl from "https://esm.sh/jsr/@devmike/hyperliquid-sdk";
 </script>
 ```
 {% endtab %}
@@ -51,7 +51,7 @@ deno add jsr:@nktkas/hyperliquid
 Read market data, account state, order book. [Learn more](clients.md#read-data)
 
 ```typescript
-import { HttpTransport, InfoClient } from "@nktkas/hyperliquid";
+import { HttpTransport, InfoClient } from "@devmike/hyperliquid-sdk";
 
 const transport = new HttpTransport();
 const client = new InfoClient({ transport });
@@ -64,7 +64,7 @@ const mids = await client.allMids();
 Place orders, transfer funds, manage accounts. [Learn more](clients.md#trading)
 
 ```typescript
-import { ExchangeClient, HttpTransport } from "@nktkas/hyperliquid";
+import { ExchangeClient, HttpTransport } from "@devmike/hyperliquid-sdk";
 import { privateKeyToAccount } from "viem/accounts";
 
 const wallet = privateKeyToAccount("0x...");
@@ -90,7 +90,7 @@ await client.order({
 Receive real-time updates via WebSocket. [Learn more](clients.md#real-time-updates)
 
 ```typescript
-import { SubscriptionClient, WebSocketTransport } from "@nktkas/hyperliquid";
+import { SubscriptionClient, WebSocketTransport } from "@devmike/hyperliquid-sdk";
 
 const transport = new WebSocketTransport();
 const client = new SubscriptionClient({ transport });

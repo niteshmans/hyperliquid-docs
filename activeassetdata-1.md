@@ -37,7 +37,7 @@ Event of user active asset data.
 Event of user active asset data.
 
 ```typescript
-import * as hl from "@nktkas/hyperliquid";
+import * as hl from "@devmike/hyperliquid-sdk";
 
 const transport = new hl.WebSocketTransport();
 const client = new hl.SubscriptionClient({ transport });

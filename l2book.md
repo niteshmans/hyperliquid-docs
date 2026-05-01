@@ -47,7 +47,7 @@ Event of L2 order book snapshot.
 | `spread` | string                   | Optional | Spread (only present when `nSigFigs` is non-null).   |
 
 ```typescript
-import * as hl from "@nktkas/hyperliquid";
+import * as hl from "@devmike/hyperliquid-sdk";
 
 const transport = new hl.WebSocketTransport();
 const client = new hl.SubscriptionClient({ transport });

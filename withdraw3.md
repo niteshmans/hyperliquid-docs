@@ -20,7 +20,7 @@ Initiate a withdrawal request.
 ## TypeScript
 
 ```typescript
-import * as hl from "@nktkas/hyperliquid";
+import * as hl from "@devmike/hyperliquid-sdk";
 import { privateKeyToAccount } from "npm:viem/accounts";
 
 const wallet = privateKeyToAccount("0x..."); // viem or ethers

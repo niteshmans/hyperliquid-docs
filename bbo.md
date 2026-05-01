@@ -38,7 +38,7 @@ Event of best bid and offer.
 | `bbo`  | any\[] · min: 2 · max: 2 | Yes      | Best bid and offer tuple \[bid, offer], either can be undefined if unavailable. |
 
 ```typescript
-import * as hl from "@nktkas/hyperliquid";
+import * as hl from "@devmike/hyperliquid-sdk";
 
 const transport = new hl.WebSocketTransport();
 const client = new hl.SubscriptionClient({ transport });

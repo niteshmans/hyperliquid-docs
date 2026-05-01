@@ -34,7 +34,7 @@ Event of array of block details.
 ## Example
 
 ```typescript
-import * as hl from "@nktkas/hyperliquid";
+import * as hl from "@devmike/hyperliquid-sdk";
 
 const transport = new hl.WebSocketTransport({ url: "wss://rpc.hyperliquid.xyz/ws" }); // RPC endpoint
 const client = new hl.SubscriptionClient({ transport });

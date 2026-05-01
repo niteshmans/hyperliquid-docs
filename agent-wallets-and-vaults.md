@@ -7,7 +7,7 @@ Hyperliquid supports delegated trading through [agent wallets](https://hyperliqu
 An agent wallet signs trades on behalf of your master account. Approve it once, then use the agent's private key for all subsequent requests:
 
 ```javascript
-import { ExchangeClient, HttpTransport } from "@nktkas/hyperliquid";
+import { ExchangeClient, HttpTransport } from "@devmike/hyperliquid-sdk";
 import { privateKeyToAccount } from "viem/accounts";
 
 const client = new ExchangeClient({
@@ -34,7 +34,7 @@ await client.order({
 Approve an agent via `approveAgent` or through the [Hyperliquid UI](https://app.hyperliquid.xyz/API):
 
 ```javascript
-import { ExchangeClient, HttpTransport } from "@nktkas/hyperliquid";
+import { ExchangeClient, HttpTransport } from "@devmike/hyperliquid-sdk";
 import { privateKeyToAccount } from "viem/accounts";
 
 const client = new ExchangeClient({

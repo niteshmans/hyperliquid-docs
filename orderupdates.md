@@ -35,7 +35,7 @@ Event of array of orders with their current processing status.
   * Timestamp when the status was last updated (in ms since epoch).
 
 ```typescript
-import * as hl from "@nktkas/hyperliquid";
+import * as hl from "@devmike/hyperliquid-sdk";
 
 const transport = new hl.WebSocketTransport();
 const client = new hl.SubscriptionClient({ transport });
