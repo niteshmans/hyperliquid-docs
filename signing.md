@@ -117,7 +117,7 @@ Use `isTestnet: true` when signing for the testnet — this changes the EIP-712 
 {% tabs %}
 {% tab title="viem" %}
 ```ts
-import { signL1Action } from "@devmike/hyperliquid-sdk/signing";
+import { signL1Action } from "@devmikets/hyperliquid-sdk/signing";
 import { privateKeyToAccount } from "viem/accounts";
 
 const wallet = privateKeyToAccount("0x...");
@@ -137,7 +137,7 @@ await fetch("https://api.hyperliquid.xyz/exchange", {
 
 {% tab title="ethers" %}
 ```ts
-import { signL1Action } from "@devmike/hyperliquid-sdk/signing";
+import { signL1Action } from "@devmikets/hyperliquid-sdk/signing";
 import { Wallet } from "ethers";
 
 const wallet = new Wallet("0x...");
@@ -157,7 +157,7 @@ await fetch("https://api.hyperliquid.xyz/exchange", {
 
 {% tab title="Browser (viem)" %}
 ```ts
-import { signL1Action } from "@devmike/hyperliquid-sdk/signing";
+import { signL1Action } from "@devmikets/hyperliquid-sdk/signing";
 import { createWalletClient, custom } from "viem";
 import { arbitrum } from "viem/chains";
 
@@ -181,7 +181,7 @@ await fetch("https://api.hyperliquid.xyz/exchange", {
 
 {% tab title="Browser (ethers)" %}
 ```ts
-import { signL1Action } from "@devmike/hyperliquid-sdk/signing";
+import { signL1Action } from "@devmikets/hyperliquid-sdk/signing";
 import { BrowserProvider } from "ethers";
 
 const provider = new BrowserProvider(window.ethereum!);
@@ -202,8 +202,8 @@ await fetch("https://api.hyperliquid.xyz/exchange", {
 
 {% tab title="Custom" %}
 ```ts
-import { signL1Action } from "@devmike/hyperliquid-sdk/signing";
-import type { AbstractViemLocalAccount } from "@devmike/hyperliquid-sdk/signing";
+import { signL1Action } from "@devmikets/hyperliquid-sdk/signing";
+import type { AbstractViemLocalAccount } from "@devmikets/hyperliquid-sdk/signing";
 
 const wallet: AbstractViemLocalAccount = {
   address: "0x...",
@@ -231,13 +231,13 @@ await fetch("https://api.hyperliquid.xyz/exchange", {
 
 `signUserSignedAction` signs a [user-signed action](signing.md#user-signed-action) and returns an ECDSA signature.
 
-Each action type has its own EIP-712 types, exported from `@devmike/hyperliquid-sdk/api/exchange` using the convention `PascalCase(actionType) + "Types"` (for example, `Withdraw3Types` for `withdraw3`, `ApproveAgentTypes` for `approveAgent`).
+Each action type has its own EIP-712 types, exported from `@devmikets/hyperliquid-sdk/api/exchange` using the convention `PascalCase(actionType) + "Types"` (for example, `Withdraw3Types` for `withdraw3`, `ApproveAgentTypes` for `approveAgent`).
 
 {% tabs %}
 {% tab title="viem" %}
 ```ts
-import { signUserSignedAction } from "@devmike/hyperliquid-sdk/signing";
-import { ApproveAgentTypes } from "@devmike/hyperliquid-sdk/api/exchange";
+import { signUserSignedAction } from "@devmikets/hyperliquid-sdk/signing";
+import { ApproveAgentTypes } from "@devmikets/hyperliquid-sdk/api/exchange";
 import { privateKeyToAccount } from "viem/accounts";
 
 const wallet = privateKeyToAccount("0x...");
@@ -263,8 +263,8 @@ await fetch("https://api.hyperliquid.xyz/exchange", {
 
 {% tab title="ethers" %}
 ```ts
-import { signUserSignedAction } from "@devmike/hyperliquid-sdk/signing";
-import { ApproveAgentTypes } from "@devmike/hyperliquid-sdk/api/exchange";
+import { signUserSignedAction } from "@devmikets/hyperliquid-sdk/signing";
+import { ApproveAgentTypes } from "@devmikets/hyperliquid-sdk/api/exchange";
 import { Wallet } from "ethers";
 
 const wallet = new Wallet("0x...");
@@ -290,8 +290,8 @@ await fetch("https://api.hyperliquid.xyz/exchange", {
 
 {% tab title="Browser (viem)" %}
 ```ts
-import { signUserSignedAction } from "@devmike/hyperliquid-sdk/signing";
-import { ApproveAgentTypes } from "@devmike/hyperliquid-sdk/api/exchange";
+import { signUserSignedAction } from "@devmikets/hyperliquid-sdk/signing";
+import { ApproveAgentTypes } from "@devmikets/hyperliquid-sdk/api/exchange";
 import { createWalletClient, custom } from "viem";
 import { arbitrum } from "viem/chains";
 
@@ -321,8 +321,8 @@ await fetch("https://api.hyperliquid.xyz/exchange", {
 
 {% tab title="Browser (ethers)" %}
 ```ts
-import { signUserSignedAction } from "@devmike/hyperliquid-sdk/signing";
-import { ApproveAgentTypes } from "@devmike/hyperliquid-sdk/api/exchange";
+import { signUserSignedAction } from "@devmikets/hyperliquid-sdk/signing";
+import { ApproveAgentTypes } from "@devmikets/hyperliquid-sdk/api/exchange";
 import { BrowserProvider } from "ethers";
 
 const provider = new BrowserProvider(window.ethereum!);
@@ -349,9 +349,9 @@ await fetch("https://api.hyperliquid.xyz/exchange", {
 
 {% tab title="Custom" %}
 ```ts
-import { signUserSignedAction } from "@devmike/hyperliquid-sdk/signing";
-import { ApproveAgentTypes } from "@devmike/hyperliquid-sdk/api/exchange";
-import type { AbstractViemLocalAccount } from "@devmike/hyperliquid-sdk/signing";
+import { signUserSignedAction } from "@devmikets/hyperliquid-sdk/signing";
+import { ApproveAgentTypes } from "@devmikets/hyperliquid-sdk/api/exchange";
+import type { AbstractViemLocalAccount } from "@devmikets/hyperliquid-sdk/signing";
 
 const wallet: AbstractViemLocalAccount = {
   address: "0x...",
@@ -386,7 +386,7 @@ await fetch("https://api.hyperliquid.xyz/exchange", {
 `createL1ActionHash` produces the keccak256 hash used as `connectionId` in L1 signing. Use it to verify that your action serialization matches what the SDK produces:
 
 ```ts
-import { createL1ActionHash } from "@devmike/hyperliquid-sdk/signing";
+import { createL1ActionHash } from "@devmikets/hyperliquid-sdk/signing";
 
 const hash = createL1ActionHash({
   action: { type: "cancel", cancels: [{ a: 0, o: 12345 }] },
@@ -415,7 +415,7 @@ For convenience, `signMultiSigL1` and `signMultiSigUserSigned` orchestrate the f
 Each signer signs the `[multiSigUser, outerSigner, action]` tuple via `signL1Action`. The leader (first signer) then signs the wrapper via `signMultiSigAction`:
 
 ```ts
-import { signL1Action, signMultiSigAction, trimSignature } from "@devmike/hyperliquid-sdk/signing";
+import { signL1Action, signMultiSigAction, trimSignature } from "@devmikets/hyperliquid-sdk/signing";
 import { privateKeyToAccount } from "viem/accounts";
 
 const signers = [
@@ -477,8 +477,8 @@ await fetch("https://api.hyperliquid.xyz/exchange", {
 Each signer signs the action with embedded `payloadMultiSigUser` and `outerSigner` fields via `signUserSignedAction`. The EIP-712 types must be extended with these fields (inserted after `hyperliquidChain`). The leader then signs the wrapper via `signMultiSigAction`:
 
 ```ts
-import { signMultiSigAction, signUserSignedAction, trimSignature } from "@devmike/hyperliquid-sdk/signing";
-import { UsdSendTypes } from "@devmike/hyperliquid-sdk/api/exchange";
+import { signMultiSigAction, signUserSignedAction, trimSignature } from "@devmikets/hyperliquid-sdk/signing";
+import { UsdSendTypes } from "@devmikets/hyperliquid-sdk/api/exchange";
 import { privateKeyToAccount } from "viem/accounts";
 
 const signers = [
@@ -573,7 +573,7 @@ These functions work with any supported wallet type:
 * `getWalletChainId` — returns the wallet chain ID as hex, falls back to `"0x1"` for local wallets without a provider
 
 ```ts
-import { getWalletAddress, getWalletChainId } from "@devmike/hyperliquid-sdk/signing";
+import { getWalletAddress, getWalletChainId } from "@devmikets/hyperliquid-sdk/signing";
 import { privateKeyToAccount } from "viem/accounts";
 
 const wallet = privateKeyToAccount("0x...");

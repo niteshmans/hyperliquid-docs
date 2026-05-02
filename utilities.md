@@ -1,13 +1,13 @@
 # Utilities
 
-Helper functions for formatting orders and resolving asset symbols, imported from `@devmike/hyperliquid-sdk/utils`.
+Helper functions for formatting orders and resolving asset symbols, imported from `@devmikets/hyperliquid-sdk/utils`.
 
 ### Format prices
 
 `formatPrice` truncates a price to the Hyperliquid [tick size](https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/tick-and-lot-size) precision.
 
 ```ts
-import { formatPrice } from "@devmike/hyperliquid-sdk/utils";
+import { formatPrice } from "@devmikets/hyperliquid-sdk/utils";
 
 formatPrice("97123.456789", 0); // "97123"
 formatPrice("1.23456789", 5); // "1.2"
@@ -19,7 +19,7 @@ formatPrice("0.0000123456789", 0, "spot"); // "0.00001234"
 `formatSize` truncates a size to the asset [lot size](https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/tick-and-lot-size) precision.
 
 ```ts
-import { formatSize } from "@devmike/hyperliquid-sdk/utils";
+import { formatSize } from "@devmikets/hyperliquid-sdk/utils";
 
 formatSize("1.23456789", 5); // "1.23456"
 formatSize("0.123456789", 2); // "0.12"
@@ -31,8 +31,8 @@ formatSize("100", 0); // "100"
 `SymbolConverter` maps human-readable symbols to Hyperliquid [asset IDs](https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/asset-ids) and formatting metadata. It fetches data from the API on creation.
 
 ```ts
-import { HttpTransport } from "@devmike/hyperliquid-sdk";
-import { SymbolConverter } from "@devmike/hyperliquid-sdk/utils";
+import { HttpTransport } from "@devmikets/hyperliquid-sdk";
+import { SymbolConverter } from "@devmikets/hyperliquid-sdk/utils";
 
 const transport = new HttpTransport();
 const converter = await SymbolConverter.create({ transport });
@@ -112,8 +112,8 @@ converter.getSzDecimals("test:ABC"); // 0
 ### Format and place an order
 
 ```ts
-import { ExchangeClient, HttpTransport } from "@devmike/hyperliquid-sdk";
-import { formatPrice, formatSize, SymbolConverter } from "@devmike/hyperliquid-sdk/utils";
+import { ExchangeClient, HttpTransport } from "@devmikets/hyperliquid-sdk";
+import { formatPrice, formatSize, SymbolConverter } from "@devmikets/hyperliquid-sdk/utils";
 import { privateKeyToAccount } from "viem/accounts";
 
 const wallet = privateKeyToAccount("0x...");

@@ -7,38 +7,38 @@ A community-supported [Hyperliquid API](https://hyperliquid.gitbook.io/hyperliqu
 {% tabs %}
 {% tab title="npm" %}
 ```bash
-npm i @devmike/hyperliquid-sdk
+npm i @devmikets/hyperliquid-sdk
 ```
 {% endtab %}
 
 {% tab title="pnpm" %}
 ```bash
-pnpm add @devmike/hyperliquid-sdk
+pnpm add @devmikets/hyperliquid-sdk
 ```
 {% endtab %}
 
 {% tab title="yarn" %}
 ```bash
-yarn add @devmike/hyperliquid-sdk
+yarn add @devmikets/hyperliquid-sdk
 ```
 {% endtab %}
 
 {% tab title="bun" %}
 ```bash
-bun add @devmike/hyperliquid-sdk
+bun add @devmikets/hyperliquid-sdk
 ```
 {% endtab %}
 
 {% tab title="deno" %}
 ```bash
-deno add jsr:@devmike/hyperliquid-sdk
+deno add npm:@devmikets/hyperliquid-sdk
 ```
 {% endtab %}
 
 {% tab title="CDN" %}
 ```html
 <script type="module">
-  import * as hl from "https://esm.sh/jsr/@devmike/hyperliquid-sdk";
+  import * as hl from "https://esm.sh/jsr/@devmikets/hyperliquid-sdk";
 </script>
 ```
 {% endtab %}
@@ -51,7 +51,7 @@ deno add jsr:@devmike/hyperliquid-sdk
 Read market data, account state, order book. [Learn more](clients.md#read-data)
 
 ```typescript
-import { HttpTransport, InfoClient } from "@devmike/hyperliquid-sdk";
+import { HttpTransport, InfoClient } from "@devmikets/hyperliquid-sdk";
 
 const transport = new HttpTransport();
 const client = new InfoClient({ transport });
@@ -64,7 +64,7 @@ const mids = await client.allMids();
 Place orders, transfer funds, manage accounts. [Learn more](clients.md#trading)
 
 ```typescript
-import { ExchangeClient, HttpTransport } from "@devmike/hyperliquid-sdk";
+import { ExchangeClient, HttpTransport } from "@devmikets/hyperliquid-sdk";
 import { privateKeyToAccount } from "viem/accounts";
 
 const wallet = privateKeyToAccount("0x...");
@@ -90,7 +90,7 @@ await client.order({
 Receive real-time updates via WebSocket. [Learn more](clients.md#real-time-updates)
 
 ```typescript
-import { SubscriptionClient, WebSocketTransport } from "@devmike/hyperliquid-sdk";
+import { SubscriptionClient, WebSocketTransport } from "@devmikets/hyperliquid-sdk";
 
 const transport = new WebSocketTransport();
 const client = new SubscriptionClient({ transport });

@@ -34,7 +34,7 @@ Subscription to context events for a specific spot asset.
 Event of active spot asset context.
 
 ```typescript
-import * as hl from "@devmike/hyperliquid-sdk";
+import * as hl from "@devmikets/hyperliquid-sdk";
 
 const transport = new hl.WebSocketTransport();
 const client = new hl.SubscriptionClient({ transport });

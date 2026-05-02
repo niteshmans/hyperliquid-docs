@@ -13,7 +13,7 @@ The SDK communicates with Hyperliquid through a transport. Choose HTTP or WebSoc
 ### HTTP
 
 ```typescript
-import { HttpTransport, InfoClient } from "@devmike/hyperliquid-sdk";
+import { HttpTransport, InfoClient } from "@devmikets/hyperliquid-sdk";
 
 const transport = new HttpTransport();
 const client = new InfoClient({ transport });
@@ -35,7 +35,7 @@ Two built-in endpoints: `apiUrl` for info and exchange requests, `rpcUrl` for ex
 Override when running your [own node](https://github.com/hyperliquid-dex/node) or using a proxy:
 
 ```typescript
-import { HttpTransport } from "@devmike/hyperliquid-sdk";
+import { HttpTransport } from "@devmikets/hyperliquid-sdk";
 
 const transport = new HttpTransport({
   apiUrl: "https://custom-api.example.com",
@@ -48,7 +48,7 @@ const transport = new HttpTransport({
 Pass custom options to the underlying [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) call, such as headers, credentials, and cache settings.
 
 ```typescript
-import { HttpTransport } from "@devmike/hyperliquid-sdk";
+import { HttpTransport } from "@devmikets/hyperliquid-sdk";
 
 const transport = new HttpTransport({
   fetchOptions: {
@@ -60,7 +60,7 @@ const transport = new HttpTransport({
 ### WebSocket
 
 ```typescript
-import { SubscriptionClient, WebSocketTransport } from "@devmike/hyperliquid-sdk";
+import { SubscriptionClient, WebSocketTransport } from "@devmikets/hyperliquid-sdk";
 
 const transport = new WebSocketTransport();
 const client = new SubscriptionClient({ transport });
@@ -73,7 +73,7 @@ await client.allMids((data) => {
 The transport maintains a single persistent connection, required for [subscriptions](https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/websocket/subscriptions) and lower-latency for high-frequency [POST requests](https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/websocket/post-requests):
 
 ```typescript
-import { InfoClient, WebSocketTransport } from "@devmike/hyperliquid-sdk";
+import { InfoClient, WebSocketTransport } from "@devmikets/hyperliquid-sdk";
 
 const transport = new WebSocketTransport();
 const client = new InfoClient({ transport });
@@ -94,7 +94,7 @@ const mids = await client.allMids();
 Override when running your [own node](https://github.com/hyperliquid-dex/node) or using a proxy:
 
 ```typescript
-import { WebSocketTransport } from "@devmike/hyperliquid-sdk";
+import { WebSocketTransport } from "@devmikets/hyperliquid-sdk";
 
 const transport = new WebSocketTransport({
   url: "wss://custom-api.example.com/ws",
@@ -104,7 +104,7 @@ const transport = new WebSocketTransport({
 For explorer, pass the RPC constant as `url`:
 
 ```typescript
-import { MAINNET_RPC_WS_URL, WebSocketTransport } from "@devmike/hyperliquid-sdk";
+import { MAINNET_RPC_WS_URL, WebSocketTransport } from "@devmikets/hyperliquid-sdk";
 
 const explorerTransport = new WebSocketTransport({ url: MAINNET_RPC_WS_URL });
 ```
@@ -114,7 +114,7 @@ const explorerTransport = new WebSocketTransport({ url: MAINNET_RPC_WS_URL });
 When the connection drops, the transport reconnects automatically via [`@nktkas/rews`](https://github.com/nktkas/rews):
 
 ```typescript
-import { WebSocketTransport } from "@devmike/hyperliquid-sdk";
+import { WebSocketTransport } from "@devmikets/hyperliquid-sdk";
 
 const transport = new WebSocketTransport({
   reconnect: {

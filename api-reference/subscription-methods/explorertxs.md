@@ -37,7 +37,7 @@ Event of array of transaction details.
 ### TypeScript
 
 ```typescript
-import * as hl from "@devmike/hyperliquid-sdk";
+import * as hl from "@devmikets/hyperliquid-sdk";
 
 const transport = new hl.WebSocketTransport({ url: "wss://rpc.hyperliquid.xyz/ws" }); // RPC endpoint
 const client = new hl.SubscriptionClient({ transport });

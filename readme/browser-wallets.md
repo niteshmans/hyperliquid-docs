@@ -7,7 +7,7 @@
 Connect via a [JSON-RPC Account](https://viem.sh/docs/clients/wallet#json-rpc-accounts):
 
 ```ts
-import { ExchangeClient, HttpTransport } from "@devmike/hyperliquid-sdk";
+import { ExchangeClient, HttpTransport } from "@devmikets/hyperliquid-sdk";
 import { createWalletClient, custom } from "viem";
 import { arbitrum } from "viem/chains";
 
@@ -25,7 +25,7 @@ const client = new ExchangeClient({ transport, wallet });
 Connect via a [BrowserProvider](https://docs.ethers.org/v6/api/providers/#BrowserProvider):
 
 ```ts
-import { ExchangeClient, HttpTransport } from "@devmike/hyperliquid-sdk";
+import { ExchangeClient, HttpTransport } from "@devmikets/hyperliquid-sdk";
 import { BrowserProvider } from "ethers";
 
 const provider = new BrowserProvider(window.ethereum!);

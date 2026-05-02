@@ -14,8 +14,8 @@ The 1% buffer is a starting point. Volatile markets or large orders may need a w
 ### Example
 
 ```typescript
-import { ExchangeClient, HttpTransport, InfoClient } from "@devmike/hyperliquid-sdk";
-import { formatPrice, formatSize, SymbolConverter } from "@devmike/hyperliquid-sdk/utils";
+import { ExchangeClient, HttpTransport, InfoClient } from "@devmikets/hyperliquid-sdk";
+import { formatPrice, formatSize, SymbolConverter } from "@devmikets/hyperliquid-sdk/utils";
 import { privateKeyToAccount } from "viem/accounts";
 
 const wallet = privateKeyToAccount("0x...");

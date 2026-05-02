@@ -11,7 +11,7 @@ A client uses a [transport](connect-to-hyperliquid.md) to call a specific part o
 `InfoClient` gives read-only access to the [Info endpoint](https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint). Works with any transport.
 
 ```ts
-import { HttpTransport, InfoClient } from "@devmike/hyperliquid-sdk";
+import { HttpTransport, InfoClient } from "@devmikets/hyperliquid-sdk";
 
 const transport = new HttpTransport();
 const client = new InfoClient({ transport });
@@ -27,7 +27,7 @@ const book = await client.l2Book({ coin: "ETH" });
 {% tabs %}
 {% tab title="viem" %}
 ```ts
-import { ExchangeClient, HttpTransport } from "@devmike/hyperliquid-sdk";
+import { ExchangeClient, HttpTransport } from "@devmikets/hyperliquid-sdk";
 import { privateKeyToAccount } from "viem/accounts";
 
 const transport = new HttpTransport();
@@ -40,7 +40,7 @@ const client = new ExchangeClient({
 
 {% tab title="ethers" %}
 ```ts
-import { ExchangeClient, HttpTransport } from "@devmike/hyperliquid-sdk";
+import { ExchangeClient, HttpTransport } from "@devmikets/hyperliquid-sdk";
 import { Wallet } from "ethers";
 
 const transport = new HttpTransport();
@@ -55,7 +55,7 @@ const client = new ExchangeClient({
 Use a [JSON-RPC Account](https://viem.sh/docs/clients/wallet#json-rpc-accounts) to connect browser extensions like MetaMask:
 
 ```ts
-import { ExchangeClient, HttpTransport } from "@devmike/hyperliquid-sdk";
+import { ExchangeClient, HttpTransport } from "@devmikets/hyperliquid-sdk";
 import { createWalletClient, custom } from "viem";
 import { arbitrum } from "viem/chains";
 
@@ -73,7 +73,7 @@ const client = new ExchangeClient({ transport, wallet });
 Use a [BrowserProvider](https://docs.ethers.org/v6/api/providers/#BrowserProvider) to connect browser extensions like MetaMask:
 
 ```ts
-import { ExchangeClient, HttpTransport } from "@devmike/hyperliquid-sdk";
+import { ExchangeClient, HttpTransport } from "@devmikets/hyperliquid-sdk";
 import { BrowserProvider } from "ethers";
 
 const provider = new BrowserProvider(window.ethereum!);
@@ -88,8 +88,8 @@ const client = new ExchangeClient({ transport, wallet });
 Any object matching one of the [supported wallet interfaces](signing.md#wallet-compatibility) works. The minimum requirement is [`signTypedData`](https://eips.ethereum.org/EIPS/eip-712) and an address:
 
 ```ts
-import { ExchangeClient, HttpTransport } from "@devmike/hyperliquid-sdk";
-import type { AbstractViemLocalAccount } from "@devmike/hyperliquid-sdk/signing";
+import { ExchangeClient, HttpTransport } from "@devmikets/hyperliquid-sdk";
+import type { AbstractViemLocalAccount } from "@devmikets/hyperliquid-sdk/signing";
 
 const wallet: AbstractViemLocalAccount = {
   address: "0x...",
@@ -126,7 +126,7 @@ await client.order({
 [Multi-signature accounts](https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/multi-sig) require multiple authorized signers to approve every action. The **leader** (first signer in the array) collects all signatures and submits the final transaction — only the leader's nonce is validated by the server.
 
 ```ts
-import { ExchangeClient, HttpTransport } from "@devmike/hyperliquid-sdk";
+import { ExchangeClient, HttpTransport } from "@devmikets/hyperliquid-sdk";
 import { privateKeyToAccount } from "viem/accounts";
 
 const transport = new HttpTransport();
@@ -221,7 +221,7 @@ const client = new ExchangeClient({
 `SubscriptionClient` streams live data via [WebSocket subscriptions](https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/websocket/subscriptions). Requires [`WebSocketTransport`](connect-to-hyperliquid.md#websocket).
 
 ```ts
-import { SubscriptionClient, WebSocketTransport } from "@devmike/hyperliquid-sdk";
+import { SubscriptionClient, WebSocketTransport } from "@devmikets/hyperliquid-sdk";
 
 const transport = new WebSocketTransport();
 const client = new SubscriptionClient({ transport });

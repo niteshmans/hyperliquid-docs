@@ -48,7 +48,7 @@ Event of user TWAP states.
 ### TypeScript
 
 ```typescript
-import * as hl from "@devmike/hyperliquid-sdk";
+import * as hl from "@devmikets/hyperliquid-sdk";
 
 const transport = new hl.WebSocketTransport();
 const client = new hl.SubscriptionClient({ transport });

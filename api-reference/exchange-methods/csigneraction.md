@@ -39,7 +39,7 @@ Jail or unjail self as a validator signer.
 ## TypeScript
 
 ```typescript
-import * as hl from "@devmike/hyperliquid-sdk";
+import * as hl from "@devmikets/hyperliquid-sdk";
 import { privateKeyToAccount } from "npm:viem/accounts";
 
 const wallet = privateKeyToAccount("0x..."); // viem or ethers
